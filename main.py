@@ -27,6 +27,16 @@ def python_to_bash(line):
         if (content.startswith('"') and content.endswith('"')) or (content.startswith("'") and content.endswith("'")):
             content = content[1:-1]
         return f"mkdir {content}"
+    elif line.startswith("os.rmdir(") and line.endswith(")"):
+        content = line[9:-1]
+        if (content.startswith('"') and content.endswith('"')) or (content.startswith("'") and content.endswith("'")):
+            content = content[1:-1]
+        return f"rmdir {content}"
+    elif line.startswith("os.remove(") and line.endswith(")"):
+        content = line[10:-1]
+        if (content.startswith('"') and content.endswith('"')) or (content.startswith("'") and content.endswith("'")):
+            content = content[1:-1]
+        return f"rm -rf {content}"
     else:
         if shutil.which(line):
             return line
