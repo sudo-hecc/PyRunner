@@ -1,71 +1,65 @@
-# 🐍 PytoBash
+# 🐍 PyRunner
 
-A lightweight, Python-powered shell interface that mimics basic terminal behavior using `os`, `subprocess`, and native system calls.
+A lightweight, Python-powered shell-like interface for entering and executing Python code interactively, powered by [rich](https://github.com/Textualize/rich).
 
 ---
 
 ## 🚀 Features
 
-- `cd <dir>` – Navigate directories
-- `ls` / `dir` – List directory contents
-- `clear` – Clear the screen (cross-platform)
-- `exit` – Exit the shell
-- Full system command support (via `os.system`)
+- Interactive prompt for entering multi-line Python code
+- Type END to finish code input and review the generated script
+- Option to execute the entered Python code directly from the shell
+- Type exit() to quit at any time
+- Syntax-highlighted output and prompts via rich
 
 ---
 
 ## 📦 Requirements
 
 - Python 3.7+
-- Works on **macOS** and **Linux**
+- rich library
 
 ---
 
 ## 🧪 Usage
 
 Clone the repository and run:
-
-```bash
-python3 main.py
-```
-
+    ```
+    python3 main.py
+    ```
 ---
 
 ## 🎯 Example
+    ```
+    Welcome to your Python 🐍 terminal. Type `END` to finish
 
-```bash
-PytoBash > ls
-main.py
-LICENSE
-README.md
+    >>> print("Hello, world!")
+    >>> END
 
-PytoBash > cd ..
-PytoBash > clear
-PytoBash > exit
-```
+    [Generated Bash Script panel with your code]
 
+    Run code? This will affect you system! (Y/n)
+    ```
 ---
 
 ## 📁 Structure
 
-```text
-main.py       # Shell interface
-README.md     # This file
-LICENSE       # MIT License
-```
+    main.py       # Shell interface
+    README.md     # This file
+    LICENSE       # MIT License
 
 ---
 
 ## 📄 License
 
-This project is licensed under the [MIT License](./LICENSE).
+This project is licensed under the MIT License.
 
 ---
 
 ## 👤 Author
 
-Created by [sudo-hecc](https://github.com/sudo-hecc)
+Created by sudo-hecc
 
 ---
 
-> PytoBash is meant to be a learning project, but can evolve into a custom scriptable shell — or even integrate with `tkinter` or `rich` in future versions!
+> PyRunner is a learning project and may evolve into a more advanced shell or scripting environment in the future!
