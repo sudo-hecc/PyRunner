@@ -36,7 +36,7 @@ Welcome to your Python 🐍 terminal. Type `END` to finish
 
 >>> print("Hello, world!")
 >>> END
-[Python code to run panel with your code]
+[Code to run panel with your code]
 
 Run code? This will affect you system! (Y/n)
 ```

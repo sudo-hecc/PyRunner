@@ -16,7 +16,7 @@ def main():
         lines = ("\n".join(code))
         if user_input == "END":
             try:
-                console.print(Panel(Text(lines, style="blue"), title="[bold blue]Generated Bash Script[/bold blue]"))
+                console.print(Panel(Text(lines, style="blue"), title="[bold blue]Code to run[/bold blue]"))
                 run = console.input("[bold yellow]Run code? This will affect you system! (Y/n) [/bold yellow]").strip().lower()
                 if run.lower() in ["y", ""]:
                     try:
