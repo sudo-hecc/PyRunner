@@ -24,30 +24,32 @@ A lightweight, Python-powered shell-like interface for entering and executing Py
 ## 🧪 Usage
 
 Clone the repository and run:
-    ```
-    python3 main.py
-    ```
+```sh 
+python3 main.py
+```
+
 ---
 
 ## 🎯 Example
-    ```
-    Welcome to your Python 🐍 terminal. Type `END` to finish
+```sh
+Welcome to your Python 🐍 terminal. Type `END` to finish
 
-    >>> print("Hello, world!")
-    >>> END
+>>> print("Hello, world!")
+>>> END
+[Python code to run panel with your code]
 
-    [Generated Bash Script panel with your code]
-
-    Run code? This will affect you system! (Y/n)
-    ```
+Run code? This will affect you system! (Y/n)
+```
 ---
 
 ## 📁 Structure
-
-    main.py       # Shell interface
-    README.md     # This file
-    LICENSE       # MIT License
-
+```
+main.py             # Shell interface
+README.md           # This file
+LICENSE             # MIT License
+CODE_OF_CONDUCT.md  # Code of conduct
+SECURITY.md         # Security policy
+```
 ---
 
 ## 📄 License
