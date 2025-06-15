@@ -1,6 +1,7 @@
 from rich.console import Console
 from rich.panel import Panel
 from rich.text import Text
+import readline
 
 console = Console()
 
@@ -18,8 +19,11 @@ def main():
                 console.print(Panel(Text(lines, style="blue"), title="[bold blue]Generated Bash Script[/bold blue]"))
                 run = console.input("[bold yellow]Run code? This will affect you system! (Y/n) [/bold yellow]").strip().lower()
                 if run.lower() in ["y", ""]:
-                    exec(lines, globals())
-                    exit()
+                    try:
+                        exec(lines, globals())
+                        exit()
+                    except Exception as e:
+                        console.print(Panel(Text(str(e), style="bold red")), justify="center")
                 else:
                     exit()
             except Exception as e:
