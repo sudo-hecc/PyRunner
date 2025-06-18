@@ -4,7 +4,6 @@ from rich.text import Text
 import readline
 import os
 import shutil
-import code
 
 console = Console()
 
