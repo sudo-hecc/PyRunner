@@ -7,10 +7,11 @@ A lightweight, Python-powered shell-like interface for entering and executing Py
 ## 🚀 Features
 
 - Interactive prompt for entering multi-line Python code
-- Type END to finish code input and review the generated script
-- Option to execute the entered Python code directly from the shell
-- Type exit() to quit at any time
+- Executes Python code interactively (multi-line supported)
+- If input is not valid Python, attempts to run it as a shell command
+- Shell commands are executed in a zsh environment with your `.zshrc` sourced (aliases and functions work)
 - Syntax-highlighted output and prompts via rich
+- Handles keyboard interrupts gracefully
 
 ---
 
@@ -24,32 +25,32 @@ A lightweight, Python-powered shell-like interface for entering and executing Py
 ## 🧪 Usage
 
 Clone the repository and run:
-```sh 
-python3 main.py
-```
+
+    python3 main.py
 
 ---
 
 ## 🎯 Example
-```sh
-Welcome to your Python 🐍 terminal. Type `END` to finish
+    ```
+    Welcome to your Python 🐍 and Bash terminal.
+    >>> print("Hello, world!")
+    Hello, world!
+    >>> pip --version
+    pip 23.2.1 from /usr/local/lib/python3.11/site-packages/pip (python 3.11)
+    >>> echo $HOME
+    /Users/yourname
+    >>> END
+    ```
 
->>> print("Hello, world!")
->>> END
-[Code to run panel with your code]
-
-Run code? This will affect you system! (Y/n)
-```
 ---
 
 ## 📁 Structure
-```
-main.py             # Shell interface
-README.md           # This file
-LICENSE             # MIT License
-CODE_OF_CONDUCT.md  # Code of conduct
-SECURITY.md         # Security policy
-```
+    ```
+    main.py       # Shell interface
+    README.md     # This file
+    LICENSE       # MIT License
+    ```
+
 ---
 
 ## 📄 License
