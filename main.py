@@ -4,48 +4,61 @@ from rich.text import Text
 import readline
 import os
 import shutil
+import code
+import tempfile
 
 console = Console()
+buffer = []
 
 def main():
-    #====INPUT====
-    console.print("[bold blue]Welcome to your Python 🐍 and Bash terminal. Type `END` to finish[/bold blue]")
-    #====LOAD `.zshrc`====
-    zshrc_path = os.path.expanduser("~/.zshrc")
-    if os.path.exists(zshrc_path):
-        with open(zshrc_path, 'r') as file:
-            zshrc_content = file.read()
-            for cmd in zshrc_content.splitlines():
-                cmds = cmd.strip()
-    else:
-        zshrc_content = "# .zshrc file not found\n"
-    os.system(zshrc_content)
+    console.print("[bold blue]Welcome to your Python 🐍 and Bash terminal.[/bold blue]")
     while True:
-        #====INPUT====
+        prompt = ">>>" if not buffer else "..."
         try:
-            user_input = console.input("[bold green]>>> [/bold green]")
+            user_input = console.input(f"[bold green]{prompt} [/bold green]")
             if user_input.strip().upper() == "END":
                 exit(0)
                 break
-            if user_input.strip() == "":
-                continue
-            #====CHECK FOR PYTHON CODE====
+            buffer.append(user_input)
+            source = "\n".join(buffer)
             try:
-                exec(user_input)
-            except:
-                #====CHECK FOR TERMINAL INPUT====
-                if shutil.which(user_input.split()[0]) is not None or user_input in cmds:
-                    try:
-                        os.system(user_input)
-                    except Exception as e:
-                        console.print(Panel(f"[bold red]Error: {e}[/bold red]", title="Error"))
+                compiled = code.compile_command(source, "<stdin>", "exec")
+                if compiled:
+                    exec(compiled, globals())
+                    buffer.clear()
                 else:
-                    try:
-                        os.system(user_input)
-                    except Exception as e:
-                        console.print(Panel(f"[bold red]Error: {e}[/bold red]", title="Error"))
+                    continue
+            except Exception:
+                #====CHECK FOR TERMINAL INPUT====
+                stripped_input = user_input.strip()
+                if not stripped_input:
+                    buffer.clear()
+                    continue
+                parts = stripped_input.split()
+                cmd = parts[0] if parts else ""
+                try:
+                    # Read .zshrc content
+                    zshrc_path = os.path.expanduser("~/.zshrc")
+                    with open(zshrc_path, "r") as zshrc_file:
+                        zshrc_content = zshrc_file.read()
+                    # Create a temp shell script
+                    with tempfile.NamedTemporaryFile("w", delete=False, suffix=".sh") as temp_script:
+                        temp_script.write(zshrc_content)
+                        temp_script.write("\n")
+                        temp_script.write(stripped_input)
+                        temp_script_path = temp_script.name
+                    # Run the temp script
+                    os.system(f"zsh {temp_script_path}")
+                    # Remove the temp script
+                    os.remove(temp_script_path)
+                except Exception as e:
+                    console.print(Panel(f"[bold red]Error: {e}[/bold red]", title="Error"))
+                buffer.clear()
         except KeyboardInterrupt:
             exit(0)
-            break
+        except Exception as e:
+            console.print(Panel(f"[bold red]Error: {e}[/bold red]", title="Error"))
+            exit(1)
 
-main()
+if __name__ == "__main__":
+    main()
