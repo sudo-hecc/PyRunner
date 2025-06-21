@@ -25,31 +25,31 @@ A lightweight, Python-powered shell-like interface for entering and executing Py
 ## 🧪 Usage
 
 Clone the repository and run:
-
-    python3 main.py
-
+```
+python3 main.py
+```
 ---
 
 ## 🎯 Example
-    ```
-    Welcome to your Python 🐍 and Bash terminal.
-    >>> print("Hello, world!")
-    Hello, world!
-    >>> pip --version
-    pip 23.2.1 from /usr/local/lib/python3.11/site-packages/pip (python 3.11)
-    >>> echo $HOME
-    /Users/yourname
-    >>> END
-    ```
+```
+Welcome to your Python 🐍 and Bash terminal.
+>>> print("Hello, world!")
+Hello, world!
+>>> pip --version
+pip 23.2.1 from /usr/local/lib/python3.11/site-packages/pip (python 3.11)
+>>> echo $HOME
+/Users/yourname
+>>> exit()
+```
 
 ---
 
 ## 📁 Structure
-    ```
+```
     main.py       # Shell interface
     README.md     # This file
     LICENSE       # MIT License
-    ```
+```
 
 ---
 
