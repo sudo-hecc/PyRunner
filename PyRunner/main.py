@@ -3,7 +3,6 @@ from rich.panel import Panel
 from rich.text import Text
 import readline
 import os
-import shutil
 import code
 import tempfile
 
@@ -13,7 +12,7 @@ buffer = []
 def main():
     console.print("[bold blue]Welcome to your Python 🐍 and Bash terminal.[/bold blue]")
     while True:
-        prompt = ">>>" if not buffer else "..."
+        prompt = f"{os.getcwd()} $" if not buffer else "..."
         try:
             user_input = console.input(f"[bold green]{prompt} [/bold green]")
             if user_input.strip().upper() == "END":
