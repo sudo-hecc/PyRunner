@@ -3,7 +3,6 @@ from rich.panel import Panel
 from rich.text import Text
 import readline
 import os
-import shutil
 import code
 import tempfile
 
