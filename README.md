@@ -33,23 +33,23 @@ python3 main.py
 ## 🎯 Example
 ```
 Welcome to your Python 🐍 and Bash terminal.
->>> print("Hello, world!")
+/Users/<yourname> $ print("Hello, world!")
 Hello, world!
->>> pip --version
+/Users/<yourname> $ pip --version
 pip 23.2.1 from /usr/local/lib/python3.11/site-packages/pip (python 3.11)
->>> echo $HOME
-/Users/yourname
->>> exit()
+/Users/<yourname> $ echo $HOME
+/Users/<yourname>
+/Users/<yourname> $ exit() # Can also be `END` or `quit()`
 ```
 
 ---
 
 ## 📁 Structure
-```
-    main.py       # Shell interface
-    README.md     # This file
-    LICENSE       # MIT License
-```
+- main.py          --> Shell interface
+- README.md        --> This file
+- LICENSE          --> MIT License
+- SECURITY.md      --> Security policy
+- requirements.txt --> Requirements list
 
 ---
 
