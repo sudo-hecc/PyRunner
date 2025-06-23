@@ -2,7 +2,7 @@
 
 ## Supported Versions
 
-Only the latest version of Pyrunner is supported with security updates.
+Only the latest version of PyRunner is supported with security updates.
 
 ## Reporting a Vulnerability
 
